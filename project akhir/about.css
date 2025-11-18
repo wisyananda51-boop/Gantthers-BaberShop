@@ -1,0 +1,535 @@
+/* === RESET & BASE === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: #0d0d0d;
+  color: #fff;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+/* === NAVBAR === */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px 80px;
+  display: flex;
+  /* justify-content: space-between; */
+  align-items: center;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+  transition: all 0.4s ease;
+}
+
+.navbar.scrolled {
+  background: rgba(20, 0, 0, 0.95);
+  padding: 15px 60px;
+  box-shadow: 0 2px 10px rgba(255, 0, 0, 0.1);
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 2px;
+  padding-right: 74%;
+}
+
+.logo span {
+  color: #d80024;
+}
+
+.nav-links {
+  display: flex;
+  gap: 10px;
+  list-style: none;
+}
+
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+  transition: 0.3s;
+  font-weight: 500;
+  /* margin-right: 10px; */
+}
+
+.nav-links:hover a {
+  color: #ff0033;
+}
+
+.nav-links:hover i {
+  color: #ff0033;
+  text-shadow: 0 0 10px #ff0033;
+}
+
+.menu-toggle {
+  display: none;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+/* ======================================
+   ONE TEAM SECTION (Luxury Dark Style)
+=======================================*/
+
+.one-team-section {
+  position: relative;
+  height: 90vh;
+  background: url("https://i.pinimg.com/736x/bd/e4/92/bde492e47880c250d81755c03d3f506d.jpg") center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  padding-left: 8%;
+  color: #fff;
+  overflow: hidden;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Overlay dark agar teks lebih jelas */
+.one-team-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+}
+
+/* Background garis premium */
+.one-team-section::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(90deg,
+      rgba(0, 0, 0, 0.25) 0,
+      rgba(0, 0, 0, 0.25) 3px,
+      transparent 3px,
+      transparent 140px);
+  opacity: 0.25;
+  pointer-events: none;
+}
+
+.one-team-content {
+  position: relative;
+  z-index: 2;
+  max-width: 600px;
+}
+
+.one-team-subtitle {
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+  opacity: 0.8;
+}
+
+.one-team-title {
+  font-size: 2.8rem;
+  font-weight: 700;
+  line-height: 1.3;
+  margin-bottom: 20px;
+}
+
+.one-team-desc {
+  max-width: 450px;
+  font-size: 1rem;
+  line-height: 1.6;
+  opacity: 0.9;
+}
+
+
+/* ============================
+   ANIMATIONS
+============================ */
+
+@keyframes fadeInSoft {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideRightSoft {
+  0% {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-fade {
+  animation: fadeInSoft 1.2s ease forwards;
+}
+
+.animate-slide-up {
+  animation: slideUp 1.3s ease forwards;
+}
+
+.animate-slide-right {
+  animation: slideRightSoft 1.3s ease forwards;
+}
+
+@media (max-width: 768px) {
+  .one-team-section {
+    height: auto;
+    padding: 100px 20px;
+    text-align: center;
+  }
+
+  .one-team-content {
+    margin: auto;
+  }
+
+  .one-team-title {
+    font-size: 2.1rem;
+  }
+
+  .one-team-desc {
+    margin: auto;
+  }
+}
+
+/* Section About Us */
+#about-us {
+    background-color: #2b2a2a; 
+    padding: 60px 20px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 300px; 
+    position: relative; 
+    animation: fadeInSlideUp 1.2s ease-out forwards;
+    opacity: 0;
+}
+
+.about-us-container {
+    max-width: 900px; 
+    width: 100%;
+    text-align: center;
+    color: #f0f0f0;
+    position: relative; 
+    z-index: 2;
+}
+
+.section-title {
+    font-size: 1.8em;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-bottom: 40px;
+    color: #f0f0f0; /* Warna judul */
+    text-transform: uppercase;
+}
+
+.stats-grid {
+    display: flex;
+    justify-content: space-around; /* Menyebar item secara merata */
+    gap: 40px; /* Jarak antar kolom */
+    flex-wrap: wrap; /* Agar bisa wrap di layar kecil */
+}
+
+.stat-item {
+    flex: 1; /* Memungkinkan item mengambil ruang yang sama */
+    min-width: 280px; /* Lebar minimal sebelum wrap */
+    padding: 20px;
+}
+
+.stat-number {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #f0f0f0; /* Warna angka/judul stat */
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.stat-description {
+    font-size: 0.9em;
+    color: #cccccc; /* Warna deskripsi */
+    line-height: 1.6;
+}
+
+/* Garis Vertikal di Tengah (Menggunakan pseudo-element) */
+#about-us::before {
+    content: '';
+    position: absolute;
+    top: 50%;/* Dimulai 15% dari atas section */
+    bottom: 15%; /* Berakhir 15% dari bawah section */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px; /* Ketebalan garis */
+    background-color: #7a6666; /* Warna garis yang sedikit lebih terang */
+    z-index: 5; /* Di bawah teks */
+}
+
+@keyframes fadeInSlideUp {
+    /* Keadaan Awal (Saat Halaman Dimuat) */
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    /* Keadaan Akhir (Setelah Animasi Selesai) */
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Media Queries untuk Responsif */
+@media (max-width: 768px) {
+    .section-title {
+        font-size: 1.5em;
+    }
+    .stats-grid {
+        flex-direction: column; /* Tumpuk kolom di layar kecil */
+        gap: 30px;
+    }
+    .stat-item {
+        min-width: unset; /* Hapus min-width di layar kecil */
+    }
+    #about-us::before {
+        display: none; /* Sembunyikan garis vertikal di layar kecil */
+    }
+}
+
+/* === FOOTER === */
+/* === FOOTER (Dark Red Elegant Theme) === */
+.footer {
+    position: relative;
+    background: #202020;
+    color: #dcdcdc;
+    padding: 80px 8% 40px;
+    font-family: "Poppins", sans-serif;
+    overflow: hidden;
+}
+
+.footer-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 50px;
+    justify-content: space-between;
+}
+
+.footer-column h3 {
+    color: #ff2c2c;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-column ul li {
+    margin-bottom: 10px;
+}
+
+.footer-column ul li a {
+    color: #dcdcdc;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.footer-column ul li a:hover {
+    color: #ff2c2c;
+    padding-left: 5px;
+}
+
+.footer-logo {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: #ff2c2c;
+    margin-bottom: 10px;
+}
+
+.footer-logo span {
+    color: #fff;
+    letter-spacing: 2px;
+}
+
+.footer-column p {
+    font-size: 0.95rem;
+    color: #bbb;
+    line-height: 1.6;
+}
+
+.social-icons {
+    margin-top: 20px;
+}
+
+.social-icons a {
+    color: #ff2c2c;
+    margin-right: 12px;
+    font-size: 1.2rem;
+    transition: 0.3s;
+}
+
+.social-icons a:hover {
+    color: #fff;
+    transform: scale(1.1);
+}
+
+.support-info li {
+    display: flex;
+    align-items: start;
+    gap: 10px;
+    color: #ccc;
+    margin-bottom: 10px;
+}
+
+.support-info i {
+    color: #ff2c2c;
+    font-size: 1rem;
+    min-width: 20px;
+}
+
+.apps i {
+    color: #ff2c2c;
+    font-size: 1.1rem;
+}
+
+/* Bottom Footer */
+.footer-bottom {
+    text-align: center;
+    padding-top: 40px;
+    border-top: 1px solid rgba(255, 0, 0, 0.2);
+    font-size: 0.9rem;
+    color: #888;
+}
+
+/* === Running Light Effect === */
+.footer-light {
+    position: absolute;
+    bottom: 0;
+    left: -200px;
+    width: 300px;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, #ff0000, transparent);
+    animation: footerLightRun 4s linear infinite;
+    opacity: 0.8;
+}
+
+@keyframes footerLightRun {
+    from {
+        left: -200px;
+    }
+
+    to {
+        left: 100%;
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .footer {
+        text-align: center;
+    }
+
+    .footer-column h3 {
+        margin-top: 20px;
+    }
+
+    .support-info li {
+        justify-content: center;
+    }
+}
+
+/* === ANIMATIONS === */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-60px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(60px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes rotateGlow {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 15px 30px;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .about-section {
+        flex-direction: column;
+        padding: 80px 30px;
+    }
+
+    .footer-container {
+        flex-direction: column;
+        padding: 40px 30px;
+        gap: 40px;
+    }
+}
